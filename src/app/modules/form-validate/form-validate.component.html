@@ -1,0 +1,18 @@
+<form>
+  <label for="name">Nombre:</label>
+  <input type="text" id="name" [(ngModel)]="name" (keyup)="onKeyName($event)" [ngModelOptions]="{standalone: true}" required>
+  <div *ngIf="!this.name">
+    Name is required.
+  </div>
+  <br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" [(ngModel)]="email" (keyup)="onKeyEmail($event)" [ngModelOptions]="{standalone: true}" required>
+  <div *ngIf="!this.email">
+    Email is required.
+  </div>
+  <br>
+  <button type="submit">Enviar</button>
+  <br>
+  <ng-content select="[cancel]"></ng-content>
+  <ng-content></ng-content>
+</form>
